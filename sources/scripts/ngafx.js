@@ -11,7 +11,7 @@
             .addClass(className);
           element
             .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-              element.removeClass('start');
+              element.removeClass('start animated');
             });
         }
       }
