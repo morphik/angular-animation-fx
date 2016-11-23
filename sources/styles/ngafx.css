@@ -1,0 +1,29 @@
+div[class^="ngafx-"]{
+  display: none;
+}
+div[class^="ngafx-"].start{
+  display: inherit;
+}
+
+div[class^="ngafx-"].infinite {
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+div[class^="ngafx-"].medium {
+    -webkit-animation-duration: .75s;
+    -moz-animation-duration: .75s;
+    animation-duration: .75s;
+}
+
+div[class^="ngafx-"].slow {
+    -webkit-animation-duration: 1.25s;
+    -moz-animation-duration: 1.25s;
+    animation-duration: 1.25s;
+}
+
+div[class^="ngafx-"].fast {
+  -webkit-animation-duration: .45s;
+  -moz-animation-duration: .45s;
+  animation-duration: .45s;
+}
