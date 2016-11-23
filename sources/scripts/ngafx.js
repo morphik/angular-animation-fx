@@ -7,7 +7,12 @@
         var params = scope.$eval(attributes.ngAfx),
             className = 'ngafx-' + params.name.toLowerCase() + ' start animated ' + params.name + ' ' + params.type;
         if( params.condition ){
-          element.addClass(className);
+          element
+            .addClass(className);
+          element
+            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+              element.removeClass('start');
+            });
         }
       }
     }
