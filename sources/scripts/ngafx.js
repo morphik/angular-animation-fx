@@ -1,6 +1,6 @@
 (function (angular) {
 
-  var ngAfxDirective = function () {
+  var ngAfxDirective = ['$timeout', function ($timeout) {
     return {
       restrict: 'A',
       link: function (scope, element, attributes) {
@@ -9,14 +9,22 @@
         if( params.condition ){
           element
             .addClass(className);
-          element
+          try{
+            if(window.isDebugMode && window.isDirectivesDebug) console.log('ngAfxDirective > link > try ');
+            element
             .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
               element.removeClass('start animated');
             });
+          } catch( e ){
+            if(window.isDebugMode && window.isDirectivesDebug) console.log('ngAfxDirective > link > catch ');
+            $timeout(function () {
+              element.removeClass('start animated');
+            }, 1000);
+          }
         }
       }
     }
-  };
+  }];
 
   angular
     .module('ngAfx', [])
